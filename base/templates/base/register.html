@@ -1,0 +1,30 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <a href ="{% url 'tasklist' %}">&#8592; Back</a>
+</div>
+
+<div class="card-body">
+    {% comment %} <h1>Register</h1> {% endcomment %}
+    <form method='POST'>
+        {% csrf_token %}
+        <label> {{form.username.label}} </label>
+        {{ form.username }}
+
+        <label> {{form.password1.label}} </label>
+        {{ form.password1 }}
+
+        <label> {{form.password2.label}} </label>
+        {{ form.password2 }}
+
+        <br>
+        <input style='margin-top: 10px ;' class='button' type='submit' value='Register'>
+    </form>
+    <p>
+        Already have an account? <a href = "{% url "loginpage" %}">Login</a>
+    </p>
+</div>
+
+{% endblock %}
